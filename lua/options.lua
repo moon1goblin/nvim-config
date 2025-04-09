@@ -3,7 +3,9 @@ vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
 vim.keymap.set("i", "jk", "<ESC>")
 
-vim.opt.tabstop = 4
+-- tab width
+vim.opt.tabstop = 2
+vim.opt.shiftwidth=2
 
 -- update time (faster completion i think)
 vim.opt.updatetime = 10
@@ -17,10 +19,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-
 -- clear highlight of search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', ';;', '<cmd>nohlsearch<CR>')
 
 -- highlight when yanking (stolen from tj xd)
 vim.api.nvim_create_autocmd('TextYankPost', {
