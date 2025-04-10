@@ -7,8 +7,8 @@ vim.keymap.set("i", "jk", "<ESC>")
 vim.opt.tabstop = 2
 vim.opt.shiftwidth=2
 
--- update time (faster completion i think)
-vim.opt.updatetime = 10
+-- update time (im not sure what it does lol)
+vim.opt.updatetime = 100
 -- keymap wait time
 vim.opt.timeoutlen = 200
 
