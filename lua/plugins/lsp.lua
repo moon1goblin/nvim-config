@@ -6,17 +6,17 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 		-- 	-- configures lua
-		-- 	{
-		-- 		"folke/lazydev.nvim",
-		-- 		ft = "lua", -- only load on lua files
-		-- 		opts = {
-		-- 			library = {
-		-- 				-- See the configuration section for more details
-		-- 				-- Load luvit types when the `vim.uv` word is found
-		-- 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-		-- 			},
-		-- 		},
-		-- 	}
+			{
+				"folke/lazydev.nvim",
+				-- ft = "lua", -- only load on lua files
+				opts = {
+					library = {
+						-- See the configuration section for more details
+						-- Load luvit types when the `vim.uv` word is found
+						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+					},
+				},
+			}
 		},
 
 		config = function()
@@ -24,14 +24,22 @@ return {
 				lua_ls = {
 					settings = {
 						Lua = {
-							-- completion = {
-							-- 	callSnippet = 'Replace',
-							-- },
+							-- completion = { callSnippet = 'Replace' },
 							diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
 				},
-			},
+				clangd = {
+					-- filetypes = { 'c', 'cpp', 'objc', 'objcpp', '.h', '.hpp' },
+					cmd = {
+						'clangd',
+						'-compile-commands-dir=/Users/ivan/.config/nvim',
+						-- '-compile-commands-dir=',
+					},
+					completion = { callSnippet = 'Replace' },
+					diagnostics = { disable = { 'missing-fields' } },
+				},
+			}
 
 			require("mason").setup()
 			require("mason-lspconfig").setup {

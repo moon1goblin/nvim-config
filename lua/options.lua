@@ -3,9 +3,11 @@ vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
 vim.keymap.set("i", "jk", "<ESC>")
 
+-- minimal number of screen lines to keep above and below the cursor
+vim.opt.scrolloff = 7
 -- tab width
-vim.opt.tabstop = 2
-vim.opt.shiftwidth=2
+vim.opt.tabstop=4
+vim.opt.shiftwidth=4
 
 -- update time (im not sure what it does lol)
 vim.opt.updatetime = 100
@@ -30,3 +32,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- remove those ~ at end of buffer
+vim.opt.fillchars:append 'eob: '
