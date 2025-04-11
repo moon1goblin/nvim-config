@@ -16,7 +16,13 @@ return {
 						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 					},
 				},
-			}
+			},
+			{
+				"j-hui/fidget.nvim",
+				opts = {
+					-- options
+				},
+			},
 		},
 
 		config = function()
@@ -30,11 +36,10 @@ return {
 					},
 				},
 				clangd = {
-					-- filetypes = { 'c', 'cpp', 'objc', 'objcpp', '.h', '.hpp' },
+					filetypes = { 'c', 'cpp', 'h', 'hpp' },
 					cmd = {
 						'clangd',
-						'-compile-commands-dir=/Users/ivan/.config/nvim',
-						-- '-compile-commands-dir=',
+						'-compile-commands-dir=~/.config/nvim',
 					},
 					completion = { callSnippet = 'Replace' },
 					diagnostics = { disable = { 'missing-fields' } },

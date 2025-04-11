@@ -35,3 +35,26 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- remove those ~ at end of buffer
 vim.opt.fillchars:append 'eob: '
+
+-- show diagnostic messages from lsps
+vim.diagnostic.config({ virtual_text = true })
+
+-- switching between windows
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- toggle diagnostics
+vim.g['diagnostics_active'] = true
+function Toggle_diagnostics()
+  if vim.g.diagnostics_active then
+    vim.g.diagnostics_active = false
+    -- vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
+  else
+    vim.g.diagnostics_active = true
+    vim.diagnostic.enable()
+  end
+end
+vim.keymap.set('n', '<leader>d', Toggle_diagnostics, { noremap = true, silent = true, desc = 'Toggle vim diagnostics' })
