@@ -39,7 +39,7 @@ return {
 				-- NOTE: some LSPs may add auto brackets themselves anyway
 				accept = { auto_brackets = { enabled = true }, },
 				-- Display a preview of the selected item on the current line
-				ghost_text = { enabled = true },
+				ghost_text = { enabled = false },
 			},
 
 			-- Default list of enabled providers defined so that you can extend it

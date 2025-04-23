@@ -37,7 +37,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.opt.fillchars:append 'eob: '
 
 -- show diagnostic messages from lsps
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ 
+	virtual_text = true,
+	signs = false,
+})
 
 -- switching between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
