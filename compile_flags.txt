@@ -1,3 +1,4 @@
 -std=c++20
+-fexperimental-library
 -I/opt/homebrew/Cellar/boost/1.87.0/include
 -L/opt/homebrew/Cellar/boost/1.87.0/lib

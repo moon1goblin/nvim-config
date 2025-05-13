@@ -24,6 +24,10 @@ vim.opt.relativenumber = true
 -- clear highlight of search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- case-insensitive searching unless \C or one or more capital letters in the search term
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- highlight when yanking (stolen from tj xd)
 vim.api.nvim_create_autocmd('TextYankPost', {
   -- desc = 'Highlight when yanking (copying) text',
@@ -37,7 +41,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.opt.fillchars:append 'eob: '
 
 -- show diagnostic messages from lsps
-vim.diagnostic.config({ 
+vim.diagnostic.config({
 	virtual_text = true,
 	signs = false,
 })
@@ -53,11 +57,12 @@ vim.g['diagnostics_active'] = true
 function Toggle_diagnostics()
   if vim.g.diagnostics_active then
     vim.g.diagnostics_active = false
-    -- vim.diagnostic.disable()
     vim.diagnostic.enable(false)
+	print("[lsp diagonstics] off")
   else
     vim.g.diagnostics_active = true
     vim.diagnostic.enable()
+	print("[lsp diagonstics] on")
   end
 end
 vim.keymap.set('n', '<leader>d', Toggle_diagnostics, { noremap = true, silent = true, desc = 'Toggle vim diagnostics' })
