@@ -1,7 +1,9 @@
+local map = require('langmapper').map
+
 -- basic keymaps
-vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
-vim.keymap.set("i", "jk", "<ESC>")
+map("n", "<leader>w", "<cmd>w<CR>")
+map("n", "<leader>q", "<cmd>q<CR>")
+map("i", "jk", "<ESC>")
 
 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.scrolloff = 7
@@ -22,7 +24,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- clear highlight of search
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- case-insensitive searching unless \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
@@ -47,10 +49,10 @@ vim.diagnostic.config({
 })
 
 -- switching between windows
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- toggle diagnostics
 vim.g['diagnostics_active'] = true
@@ -65,4 +67,4 @@ function Toggle_diagnostics()
 	print("[lsp diagonstics] on")
   end
 end
-vim.keymap.set('n', '<leader>d', Toggle_diagnostics, { noremap = true, silent = true, desc = 'Toggle vim diagnostics' })
+map('n', '<leader>d', Toggle_diagnostics, { noremap = true, silent = true, desc = 'Toggle vim diagnostics' })
